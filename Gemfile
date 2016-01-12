@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "figaro" #env
+gem 'pry', '~> 0.10.3' #binding.pry
 
 
 # Use ActiveModel has_secure_password

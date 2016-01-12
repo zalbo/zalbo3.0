@@ -603,7 +603,7 @@ nav#menu #menu-nav li a:hover {
 }
 
 .menu-nav {
-	background:url(../img/menu-mobile.png) 0 0 no-repeat;
+	background:url(../images/menu-mobile.png) 0 0 no-repeat;
 	width: 16px;
 	height: 16px;
 	display: block;
@@ -797,15 +797,13 @@ nav#menu #menu-nav li a:hover {
 
 .item-thumbs .hover-wrap .overlay-img-thumb {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -16px 0 0 -16px;
+	width: 270px;
+	text-align: center;
+	margin-top: 28%;
 	color: #FFFFFF;
-	font-size: 32px;
+	font-size: 25px;
 	line-height: 1em;
-
 	opacity: 1;
-	filter: alpha(opacity=100);
 }
 
 
