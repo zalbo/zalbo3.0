@@ -24,12 +24,23 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+
     @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render :show, status: :created, location: @project }
+
+        if params[:photos]
+        #===== The magic is here ;)
+        params[:photos].each { |photo|
+
+          @project.images.create(uplaod_photo: photo)
+        }
+        @default_photo = @project.images.first
+        binding.pry
+        @project.update(:default_photo => @default_photo.id)
+        end
+        redirect_to "/project"
       else
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -69,6 +80,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :content)
+      params.require(:project).permit(:title, :content , :default_photo)
     end
 end

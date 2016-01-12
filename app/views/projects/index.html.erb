@@ -44,7 +44,7 @@
                           	<span class="overlay-img-thumb"><%=project.title%></span>
                           	</a>
                           	<!-- Thumb Image and Description -->
-                          	<img src="/images/work/thumbs/image-01.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                          	<img src=<%=Image.find(project.default_photo).uplaod_photo.url(:thumb) %> alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
                         	</li>
                       		<!-- End Item Project -->
 												<%end%>
