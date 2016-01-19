@@ -29,6 +29,9 @@ gem 'pry', '~> 0.10.3' #binding.pry
 gem "paperclip", "~> 4.3"
 
 
+gem 'devise' #login gem
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
