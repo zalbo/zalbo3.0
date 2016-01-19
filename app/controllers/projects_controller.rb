@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
 
     @project = Project.new(project_params)
 
-    respond_to do |format|
       if @project.save
 
         if params[:photos]
@@ -37,15 +36,13 @@ class ProjectsController < ApplicationController
           @project.images.create(uplaod_photo: photo)
         }
         @default_photo = @project.images.first
-        binding.pry
         @project.update(:default_photo => @default_photo.id)
         end
-        redirect_to "/project"
+        redirect_to "/projects"
       else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+
       end
-    end
+
   end
 
   # PATCH/PUT /projects/1
