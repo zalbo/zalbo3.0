@@ -11,7 +11,7 @@ var BRUSHED = window.BRUSHED || {};
 /*login snow*/
 
 $(function() {
-    $('.login')
+    $('.login' )
     .mouseenter(function() {
         $('#login-pannel').fadeIn('fast');
     })
