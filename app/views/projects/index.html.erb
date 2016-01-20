@@ -24,10 +24,10 @@
                     <ul id="filters" class="option-set" data-option-key="filter">
                     	<li class="type-work">Category</li>
                         <li><a href="f" data-option-value="*" class="selected">Tutti i Progetti</a></li>
-                        <li><a href="#filter" data-option-value=".design">3dPrinter</a></li>
-                        <li><a href="#filter" data-option-value=".photography">Design</a></li>
-                        <li><a href="#filter" data-option-value=".video">Audio</a></li>
-                        <li><a href="#filter" data-option-value=".video">Elettronica</a></li>
+                        <li><a href="#filter" data-option-value=".3d">3dPrinter</a></li>
+                        <li><a href="#filter" data-option-value=".design">Design</a></li>
+                        <li><a href="#filter" data-option-value=".audio">Audio</a></li>
+                        <li><a href="#filter" data-option-value=".elettronica">Elettronica</a></li>
                     </ul>
                 </nav>
                 <!-- End Filter -->
@@ -39,7 +39,7 @@
                     	<ul id="thumbs">
 												<%@projects.each do |project|%>
 													<!-- Item Project and Filter Name -->
-                        	<li class="item-thumbs span3 design">
+                        	<li class="item-thumbs span3 <%= 	project.category%>">
                         		<!-- Fancybox - Gallery Enabled - Title - Full Image -->
                         		<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="/images/images/work/full/image-01-full.jpg">
                         		<span class="overlay-img"></span>

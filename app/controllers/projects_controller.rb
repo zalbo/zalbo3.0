@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+
     @projects = Project.all
   end
 
@@ -25,6 +26,13 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    #check if the field is empty
+    project_params.each do |key , value|
+      if value == ""
+        flash[:notice] = "il campo #{key} è vuoto"
+        return redirect_to "/projects/new"
+      end
+    end
 
     @project = Project.new(project_params)
 
@@ -78,6 +86,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :content , :default_photo)
+      params.require(:project).permit(:title, :content , :default_photo , :category)
     end
 end
