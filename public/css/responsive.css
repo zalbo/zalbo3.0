@@ -1,3 +1,28 @@
+@media (max-width: 979px) {
+	li#contact-buttom {
+			padding-right: 0px;
+	}
+
+	.login {
+    display: none !important;
+}
+
+}
+
+@media (min-width: 980px) {
+
+	li.menu-login-mobile {
+		display: none!important;
+	}
+
+	a.menu-login-mobile {
+		display: none !important;
+	}
+
+}
+
+
+
 @media (min-width: 980px) and (max-width: 1199px) {
 	.item-thumbs .hover-wrap .overlay-img-thumb {
 	    width: 220px;
@@ -24,6 +49,7 @@
 	#menu-nav-mobile {
 		margin: 0;
 	}
+
 
 	header .sticky-nav #mobile-nav,
 	header .sticky-nav.stuck #mobile-nav {
@@ -68,7 +94,6 @@
 			margin-top: 32%;
 			font-size: 40px;
 	}
-
 
 
 
@@ -230,6 +255,7 @@
 }
 
 @media (max-width: 480px) {
+
 
 
 	#back-to-top {
@@ -410,6 +436,7 @@
 	#navigation-mobile li a {
 		padding: 20px 0;
 	}
+
 
 	.work-nav #filters li a {
 		font-size: 12px;

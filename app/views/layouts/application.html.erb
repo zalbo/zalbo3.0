@@ -119,7 +119,20 @@
           <li><a href="#work">Progetti</a></li>
           <li><a href="#about">Chi sono</a></li>
           <li id="contact-buttom"><a href="#contact">Contatti</a></li>
+          <!--login pannel mobile -->
+          <% if user_signed_in? %>
+            <li class="menu-login-mobile"><nav class="login-mobile">Ciao <%=current_user.email%></nav></li>
+            <li class="menu-login-mobile"><%= link_to 'Edit profile', edit_user_registration_path,method: :get , :class =>'login-mobile'%></li>
+            <li class="menu-login-mobile"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>'login-mobile'%></li>
+          <% else %>
+            <li class="menu-login-mobile"><%= link_to "Login", new_user_session_path, method: :login , :class =>'login-mobile'%></li>
+            <li class="menu-login-mobile"><%= link_to "Registrati", "/users/sign_up", method: :get , :class =>'login-mobile'%></li>
+            <li class="menu-login-mobile"><%= link_to "Accedi con Facebook", "/users/sign_up", method: :get , :class =>'login-mobile'%></li>
+          <% end %>
+          <!--login pannel mobile end-->
         <ul>
+
+        <!--login pannel deskotp -->
         <% if user_signed_in? %>
           <div class="login"  style="background-image:url(<%=current_user.avatar.url(:thumb)%>)">
             <div id="login-pannel">
@@ -136,12 +149,13 @@
               <div id="login-pannel">
                 <div class="button-login">
                 <%= link_to "Login", new_user_session_path, method: :login,  :class => 'button-login'  %><br>
-                <%= link_to "Sign up", "/users/sign_up", method: :get , :class => 'button-login'  %> <br>
+                <%= link_to "Registrati", "/users/sign_up", method: :get , :class => 'button-login'  %> <br>
                 <a class="button-login"href="/users/sign_up">Accedi con Facebook</a>
               </div>
             </div>
           </div>
           <% end %>
+          <!--login pannel deskotp  end-->
         </div >
       </nav>
     </div>
