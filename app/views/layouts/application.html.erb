@@ -132,9 +132,14 @@
           <!--login pannel mobile end-->
         <ul>
 
-        <!--login pannel deskotp -->
+        <!--login pannel desktop -->
         <% if user_signed_in? %>
-          <div class="login"  style="background-image:url(<%=current_user.avatar.url(:thumb)%>)">
+          <div class="login" >
+            <% if  current_user.avatar_file_name == nil %>
+              <img class="login-image" src="/images/no-avatar.png">
+            <% else %>
+              <img  src=<%=current_user.avatar.url(:thumb)%> >
+            <%end%>
             <div id="login-pannel">
               <div class="button-login">
                 <div class="button-login"> <%= current_user.email %></div>
