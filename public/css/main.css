@@ -60,6 +60,13 @@ a > img {
 	vertical-align: bottom;
 }
 
+.img_log {
+    position: absolute;
+    z-index: 1;
+    right: 94px;
+    top: 100px;
+}
+
 img {
 	max-width: none;
 }
@@ -70,6 +77,11 @@ strong {
 
 p {
 	margin: 0 0 30px;
+}
+
+hr.hr_log {
+    border-color: #DE5E60;
+		border-style: inset;
 }
 
 hr {
