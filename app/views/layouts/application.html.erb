@@ -121,7 +121,7 @@
           <li id="contact-buttom"><a href="#contact">Contatti</a></li>
           <!--login pannel mobile -->
           <% if user_signed_in? %>
-            <li class="menu-login-mobile"><nav class="login-mobile">Ciao <%=current_user.email%></nav></li>
+            <li class="menu-login-mobile"><nav class="login-mobile nickname">Ciao <%=@nickname_rendered%></nav></li>
             <li class="menu-login-mobile"><%= link_to 'Edit profile', edit_user_registration_path,method: :get , :class =>'login-mobile'%></li>
             <li class="menu-login-mobile"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>'login-mobile'%></li>
           <% else %>
@@ -142,7 +142,7 @@
             <%end%>
             <div id="login-pannel">
               <div class="button-login">
-                <div class="button-login"> <%= current_user.email %></div>
+                <div class="button-login nickname">Ciao <%=@nickname_rendered%></div>
                 <%= link_to 'Edit profile', edit_user_registration_path,method: :get, :class => 'button-login' %><br>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'button-login'  %>
               </div>

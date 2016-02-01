@@ -529,6 +529,10 @@ img.login-image {
     margin-left: 14px;
 }
 
+.nickname{
+	color: #26292E !important;
+}
+
 
 a.button-login {
 		margin-top: 5px;
