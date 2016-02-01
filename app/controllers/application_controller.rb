@@ -13,11 +13,13 @@ class ApplicationController < ActionController::Base
   end
 
   def render_nickname
-    if current_user.nickname.size > 13
-      nickname_short = current_user.nickname[0,10]
-      @nickname_rendered =  nickname_short + "..."
-    else
-      @nickname_rendered = current_user.nickname
+    if current_user
+      if current_user.nickname.size > 13
+        nickname_short = current_user.nickname[0,10]
+        @nickname_rendered =  nickname_short + "..."
+      else
+        @nickname_rendered = current_user.nickname
+      end
     end
   end
 end

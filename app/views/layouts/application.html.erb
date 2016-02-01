@@ -143,7 +143,9 @@
             <div id="login-pannel">
               <div class="button-login">
                 <div class="button-login nickname">Ciao <%=@nickname_rendered%></div>
-                <%= link_to 'Edit profile', edit_user_registration_path,method: :get, :class => 'button-login' %><br>
+                <% if current_user.provider != "facebook"%>
+                  <%= link_to 'Edit profile', edit_user_registration_path,method: :get, :class => 'button-login' %><br>
+                <% end %>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'button-login'  %>
               </div>
             </div >
@@ -155,7 +157,7 @@
                 <div class="button-login">
                 <%= link_to "Login", new_user_session_path, method: :login,  :class => 'button-login'  %><br>
                 <%= link_to "Registrati", "/users/sign_up", method: :get , :class => 'button-login'  %> <br>
-                <a class="button-login"href="/users/sign_up">Accedi con Facebook</a>
+                <%= link_to "Entra cons Facebook", user_omniauth_authorize_path(:facebook), method: :get , :class => 'button-login' %>
               </div>
             </div>
           </div>

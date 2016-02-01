@@ -262,6 +262,6 @@ Devise.setup do |config|
   config.authentication_keys = [ :login ]
   config.reset_password_keys = [ :nickname ]
   config.confirmation_keys = [ :nickname ]
-
+  config.omniauth :facebook, ENV["app_id"], ENV["app_secret"]
 
 end

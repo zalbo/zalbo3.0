@@ -30,6 +30,8 @@ gem "paperclip", "~> 4.3"
 
 
 gem 'devise' #login gem
+gem 'omniauth-facebook'
+gem 'open_uri_redirections'
 
 
 # Use ActiveModel has_secure_password
