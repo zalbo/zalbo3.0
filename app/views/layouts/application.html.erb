@@ -98,6 +98,8 @@
   <!-- End of Splash Screen -->
 
   <!-- Homepage Slider -->
+  <div id="message"  style="display:none;">
+  </div >
   <div id="home-slider">
       <div class="overlay"></div>
 
@@ -118,6 +120,7 @@
       <a href="#home-slider"><img class="nav-logo" src="/images/logo_@2x.png"></a>
       <nav id="menu">
         <ul id="menu-nav">
+          <li class="message"><p id="notice"><%= notice %></p></li>
         	<li class="current"><a href="#home-slider">Home</a></li>
           <li><a href="#work">Progetti</a></li>
           <li><a href="#about">Chi sono</a></li>
@@ -183,7 +186,7 @@
       <div class="row">
           <div class="span12">
               <div class="title-page">
-                  <h2 class="title">Chi sono (o provo a essere)</h2>
+                  <h2 class="title mobile_log">Chi sono (o provo a essere)</h2>
               </div>
           </div>
       </div>
@@ -194,11 +197,10 @@
 
           <!-- Start Profile -->
       	<div class="profile">
-          <h3 class="profile-name">Alberto Riva</h3>
-
-          <img class="profile-image" src="/images/profile/profile-01.jpg" alt="zalbo">
-
-            <div class="profile-description">
+          <h3 class="profile-name mobile_log">Alberto Riva</h3>
+          <div class="contenti_image_profile">
+            <img class="item-thumbs span3 3d isotope-item" src="/images/profile/profile-01.jpg" alt="zalbo"></div>
+            <div class="profile-description mobile_log">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat <a href="#">hendrerit dictum</a>.
               Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
             </div>

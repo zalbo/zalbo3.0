@@ -1,3 +1,11 @@
+#message {
+    width: 300px;
+    height: 300px;
+    background: red;
+
+}
+
+
 /*
 Theme Name: Brushed
 Theme URI: http://www.themes.alessioatzeni.com/html/brushed/
@@ -77,6 +85,12 @@ strong {
 
 p {
 	margin: 0 0 30px;
+}
+
+p#notice {
+    position: absolute;
+    left: 70px;
+    top: 21px;
 }
 
 hr.hr_log {
@@ -626,9 +640,7 @@ label.remember_me {
     margin: 0px;
 }
 
-.mobile_log {
-    text-align: center;
-}
+
 
 
 
@@ -706,7 +718,6 @@ label.remember_me {
 
 .page {
 	background: #2F3238;
-	padding: 100px 0;
 	position: relative;
 	z-index: 99;
 }
@@ -859,6 +870,14 @@ label.remember_me {
 	float: left;
 	width: 600px;
 	margin-bottom: 25px;
+}
+
+.profile-description {
+    margin-left: 30px;
+}
+
+h3.profile-name {
+    margin-left: 30px;
 }
 
 .profile-image {

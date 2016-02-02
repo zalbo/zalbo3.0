@@ -56,6 +56,14 @@ BRUSHED.listenerMenu = function(){
 	});
 }
 
+$(document).ready(function () {
+    $('#notice').fadeIn(10000);
+    $('#notice').delay(5000);
+    $('#notice').fadeOut(10000);
+
+    // OR $('div.toshow').show(2200);
+    // OR $('div.toshow').slideDown("slow");
+});
 
 /* ==================================================
    Slider Options

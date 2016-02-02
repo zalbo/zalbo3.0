@@ -1,11 +1,32 @@
+
 @media (max-width: 979px) {
 	li#contact-buttom {
 			padding-right: 0px;
 	}
 
-	.login {
-    display: none !important;
-}
+		.login {
+    	display: none !important;
+	}
+
+	.mobile_log {
+    	text-align: center;
+	}
+
+	.form-group.mobile_log {
+    	display: none;
+		}
+
+		.profile-image {
+    float: none;
+		height: 200px;
+	}
+	.profile-description {
+	    margin-left: 0px;
+	}
+
+	h3.profile-name {
+	    margin-left: 0px;
+	}
 
 }
 
@@ -27,6 +48,8 @@
 	.item-thumbs .hover-wrap .overlay-img-thumb {
 	    width: 220px;
 	}
+
+
 
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -374,7 +397,7 @@
     width: 300px;
 	}
 
-	
+
 
 	#response {
 		margin-bottom: 30px;
