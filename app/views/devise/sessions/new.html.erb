@@ -1,17 +1,17 @@
-<div id="work" class="page">
-	<div class="container">
-    <h2>Log in</h2>
+<div id="work" class="page ">
+	<div class="container ">
+    <h2 class="mobile_log">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-		<div class="field">
+		<div class="field mobile_log">
 			<%= f.label :nickname_o_Email %>
 			<%= f.text_field :login %>
 		</div>
 
 		<br />
 
-    <div class="field">
+    <div class="field mobile_log">
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
@@ -20,7 +20,7 @@
 		<hr class="hr_log">
 
     <% if devise_mapping.rememberable? -%>
-      <div class="field">
+      <div class="field mobile_log">
 				<label class="remember_me"> Ricorda Login </label>
         <%= f.check_box :remember_me %>
 
@@ -29,7 +29,7 @@
 
 		<br />
 
-      <div class="actions push_login">
+      <div class="actions push_login mobile_log">
         <%= f.submit "Log in"     %>
       </div>
     <% end %>

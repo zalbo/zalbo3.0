@@ -1,25 +1,25 @@
 <div id="work" class="page">
 	<div class="container">
-    <h2>Registrati</h2>
+    <h2 class="mobile_log">Registrati</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-		<div class="field">
+		<div class="field mobile_log">
       <%= f.label :nickname %>
       <%= f.text_field :nickname, autofocus: true %>
     </div>
 
 		<br/>
 
-    <div class="field">
+    <div class="field mobile_log">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true %>
     </div>
 
 		<hr class="hr_log">
 
-    <div class="field">
+    <div class="field mobile_log">
       <%= f.label :password %>
       <% if @validatable %>
       <em>(minimo <%= @minimum_password_length %> caratteri)</em>
@@ -29,14 +29,14 @@
 
 		<br />
 
-    <div class="field">
+    <div class="field mobile_log">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
 		<hr class="hr_log">
 
-    <div class="actions">
+    <div class="actions mobile_log">
       <%= f.submit "Sign up" %>
     </div>
     <% end %>
