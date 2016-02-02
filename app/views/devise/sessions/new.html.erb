@@ -5,27 +5,34 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 		<div class="field">
-			<%= f.label :username_or_Email %><br />
+			<%= f.label :nickname_o_Email %>
 			<%= f.text_field :login %>
 		</div>
 
+		<br />
+
     <div class="field">
-      <%= f.label :password %><br />
+      <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
+
+		<hr class="hr_log">
+
     <% if devise_mapping.rememberable? -%>
       <div class="field">
+				<label class="remember_me"> Ricorda Login </label>
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-      <% end -%>
 
-      <div class="actions">
-        <%= f.submit "Log in" %>
+      </div>
+    <% end -%>
+
+		<br />
+
+      <div class="actions push_login">
+        <%= f.submit "Log in"     %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
   </div>
 </div>

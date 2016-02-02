@@ -129,6 +129,11 @@ input, button, select, textarea {
 	outline: 0;
 }
 
+input[type="submit"] {
+	height: 50px;
+width: 220px;
+}
+
 input:focus,
 textarea:focus,
 input[type="text"]:focus {
@@ -617,6 +622,11 @@ nav#menu #menu-nav li a:hover {
 	color: #DE5E60;
 }
 
+label.remember_me {
+    margin: 0px;
+}
+
+
 
 /* ==================================================
    Mobile Navigation
@@ -843,6 +853,11 @@ nav#menu #menu-nav li a:hover {
 	float: left;
 	width: 600px;
 	margin-bottom: 25px;
+}
+
+.profile-image {
+	float: right;
+	height: 500px;
 }
 
 .social-icons {

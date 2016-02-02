@@ -369,10 +369,12 @@
 		margin-bottom: 0;
 	}
 
-	.profile-image{
+	.profile-image  {
 		padding: 20px;
     width: 300px;
 	}
+
+	
 
 	#response {
 		margin-bottom: 30px;

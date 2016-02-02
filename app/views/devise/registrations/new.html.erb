@@ -1,39 +1,44 @@
 <div id="work" class="page">
 	<div class="container">
-    <h2>Sign up</h2>
+    <h2>Registrati</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
 		<div class="field">
-      <%= f.label :nickname %><br />
+      <%= f.label :nickname %>
       <%= f.text_field :nickname, autofocus: true %>
     </div>
 
+		<br/>
+
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email %>
       <%= f.email_field :email, autofocus: true %>
     </div>
+
+		<hr class="hr_log">
 
     <div class="field">
       <%= f.label :password %>
       <% if @validatable %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(minimo <%= @minimum_password_length %> caratteri)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
+		<br />
+
     <div class="field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
+
+		<hr class="hr_log">
 
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
-
   </div>
 </div>
