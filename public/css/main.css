@@ -100,9 +100,7 @@ hr {
 	margin: 50px 0;
 }
 
-.avatar_from_fb{
-	
-}
+
 
 .align_left{
 	float:left;
@@ -554,6 +552,12 @@ a.button-login {
 		margin-top: 5px;
     color: #FFFFFF;
 		line-height: 2.5;
+}
+
+input.delete_button {
+    background: #DE5E60;
+    color: optimizeQuality;
+    border-color: #DE5E60;
 }
 
 a.button-login:hover {
