@@ -119,7 +119,9 @@
       <a href="#home-slider"><img class="nav-logo" src="/images/logo_@2x.png"></a>
       <nav id="menu">
         <ul id="menu-nav">
-          <li class="message"><p id="notice"><%= notice %></p></li>
+          <% if flash.notice %>
+            <li class="message"><p id="notice"><%= notice %></p><img class="status_notice" src="/images/ok.png"></li>
+          <%end%>
         	<li class="current"><a href="#home-slider">Home</a></li>
           <li><a href="#work">Progetti</a></li>
           <li><a href="#about">Chi sono</a></li>

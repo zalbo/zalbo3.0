@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
     before_filter :facebook_user, if: :user_signed_in?
     before_filter :render_nickname
 
+
+
   protected
+
+
 
   def facebook_user
     def process_uri(uri)
@@ -17,12 +21,8 @@ class ApplicationController < ActionController::Base
     end
 
     if current_user.provider
-  
-
-        avatar_url = process_uri(current_user.nick_avatar + "?type=large")
-        current_user.update_attribute(:avatar, URI.parse(avatar_url))
-
-
+      avatar_url = process_uri(current_user.nick_avatar + "?type=large")
+      current_user.update_attribute(:avatar, URI.parse(avatar_url))
     end
   end
 

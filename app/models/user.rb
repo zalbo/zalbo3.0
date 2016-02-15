@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    binding.pry
+
   if auth.info.image != first_or_create.nick_avatar
     if auth.info.image.present?
       avatar_url = process_uri(auth.info.image + "?type=large")
