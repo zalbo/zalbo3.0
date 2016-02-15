@@ -16,15 +16,28 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
+    binding.pry
+  if auth.info.image != first_or_create.nick_avatar
+    if auth.info.image.present?
+      avatar_url = process_uri(auth.info.image + "?type=large")
+      first_or_create.update_attribute(:avatar, URI.parse(avatar_url))
+    end
+  end
+
+
+
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
     user.email = auth.info.email
     user.password = Devise.friendly_token[0,20]
 
     user.nickname = auth.info.name   # assuming the user model has a name
+    user.nick_avatar = auth.info.image
+
     if auth.info.image.present?
-        avatar_url = process_uri(auth.info.image)
-        user.update_attribute(:avatar, URI.parse(avatar_url))
-      end
+      avatar_url = process_uri(auth.info.image + "?type=large")
+      user.update_attribute(:avatar, URI.parse(avatar_url))
+    end
+
   end
 
 
