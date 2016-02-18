@@ -5,11 +5,7 @@ class ApplicationController < ActionController::Base
     before_filter :facebook_user, if: :user_signed_in?
     before_filter :render_nickname
 
-
-
   protected
-
-
 
   def facebook_user
     def process_uri(uri)

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -82,6 +84,8 @@
   </script>
   <!-- End Analytics -->
 
+
+
   <title>albo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -110,6 +114,8 @@
             <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
       </div>
   </div>
+
+
   <!-- End Homepage Slider -->
 
   <!-- Header -->
@@ -119,9 +125,26 @@
       <a href="#home-slider"><img class="nav-logo" src="/images/logo_@2x.png"></a>
       <nav id="menu">
         <ul id="menu-nav">
+
           <% if flash.notice %>
-            <li class="message"><p id="notice"><%= notice %></p><img class="status_notice" src="/images/ok.png"></li>
+            <li class="message"><p id="notice"><%= notice %></p><img class="status_message" src="/images/ok.png"></li>
+          <% elsif flash.alert%>
+            <%if params[:commit]%>
+              <li class="message"><p id="info"><%= alert %></p><img class="status_message" src="/images/info.png"></li>
+            <%end %>
+<!-- message for devise registration -->
+          <% elsif params[:controller].include? "devise" %>
+            <%if devise_error_messages! != "" %>
+              <% render_devise_message(devise_error_messages!) %>
+              <li class="message"><p id="alert"><%= @msg_dvs_rnded %></p><img class="status_message" src="/images/error.png"></li>
+            <% end %>
+<!-- end message for devise registration -->
+          <% else %>
+
           <%end%>
+
+
+
         	<li class="current"><a href="#home-slider">Home</a></li>
           <li><a href="#work">Progetti</a></li>
           <li><a href="#about">Chi sono</a></li>
