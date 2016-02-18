@@ -130,6 +130,13 @@ hr.hr_log {
 		border-style: inset;
 }
 
+.hr_log_v2 {
+    border-color: #DE5E60;
+		border-style: inset;
+		margin-top: 20px ;
+		margin-bottom: 20px ;
+}
+
 hr {
 	border-style: dashed;
 	border-color: #3C3F45;
@@ -643,6 +650,19 @@ right: 20px;
 	color: white;
 	padding-top: 12px;
   padding-bottom: 12px;
+}
+
+#change_pass{
+ height: 0px ;
+ display: none;
+}
+
+.btn_change{
+	margin: 0 0 20px 0;
+color: #FFFFFF;
+font-weight: 300;
+font-family: 'Montserrat', sans-serif;
+line-height: 1.5em;
 }
 
 

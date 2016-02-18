@@ -1,3 +1,6 @@
+<script src="/js/change_pass.js"></script>
+
+
 <div id="work" class="page">
 	<div class="container">
 
@@ -41,24 +44,25 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-		<hr class="hr_log">
+		<hr class="hr_log_v2">
+		 <a href="#2" id="panel_change_pass" onclick="myFunction()" class="btn_change"><i class="font-icon-arrow-simple-down">Cambia Password</i></a>
 
-		<h3 class="mobile_log">Cambia Password</h3>
-		<p class="mobile_log">(lasciare in bianco se non la si vuole cambiare)</p>
+		<div id="change_pass">
+			<p class="mobile_log">(lasciare in bianco se non la si vuole cambiare)</p>
 
-    <div class="field mobile_log">
-      <%= f.label :nuova_password %>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+    	<div class="field mobile_log">
+      	<%= f.label :nuova_password %>
+      	<%= f.password_field :password, autocomplete: "off" %>
+    	</div>
 
-		<br />
+			<br />
 
-    <div class="field mobile_log">
-      <%= f.label :conferma_nuova_password%>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
-
-		<hr class="hr_log">
+    	<div class="field mobile_log">
+      	<%= f.label :conferma_nuova_password%>
+      	<%= f.password_field :password_confirmation, autocomplete: "off" %>
+    	</div>
+		</div>
+		<hr class="hr_log_v2">
 
 		<h3 class="mobile_log">Aggiorna il tuo profilo </h3>
     <div class="actions mobile_log">
@@ -74,3 +78,9 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+
+
+</script>
