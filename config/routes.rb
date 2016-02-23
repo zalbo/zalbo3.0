@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'footer/index'
+
+  get 'footer/new'
+
+  get 'footer/create'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   resources :images

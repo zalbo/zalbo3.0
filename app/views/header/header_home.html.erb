@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+
+<html>
+<head>
+
+  <!-- Meta Tags -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <meta name="description" content="Insert Your Site Description" />
+
+  <!-- Mobile Specifics -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="MobileOptimized" content="320"/>
+
+  <!-- Mobile Internet Explorer ClearType Technology -->
+  <!--[if IEMobile]>  <meta http-equiv="cleartype" content="on">  <![endif]-->
+
+  <!-- favicon -->
+  <%= favicon_link_tag 'favicon.ico' %>
+
+  <!-- Bootstrap -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main Style -->
+  <link href="/css/main.css" rel="stylesheet">
+
+  <!-- Supersized -->
+  <link href="/css/supersized.css" rel="stylesheet">
+  <link href="/css/supersized.shutter.css" rel="stylesheet">
+
+  <!-- FancyBox -->
+  <link href="/css/fancybox/jquery.fancybox.css" rel="stylesheet">
+
+  <!-- Font Icons -->
+  <link href="/css/fonts.css" rel="stylesheet">
+
+  <!-- Shortcodes -->
+  <link href="/css/shortcodes.css" rel="stylesheet">
+
+  <!-- Responsive -->
+  <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+  <link href="/css/responsive.css" rel="stylesheet">
+
+  <!-- Supersized -->
+  <link href="/css/supersized.css" rel="stylesheet">
+  <link href="/css/supersized.shutter.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Fav Icon -->
+  <link rel="shortcut icon" href="#">
+
+  <link rel="apple-touch-icon" href="#">
+  <link rel="apple-touch-icon" sizes="114x114" href="#">
+  <link rel="apple-touch-icon" sizes="72x72" href="#">
+  <link rel="apple-touch-icon" sizes="144x144" href="#">
+
+  <!-- Modernizr -->
+  <script src="/js/modernizr.js"></script>
+
+  <!-- Analytics -->
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'Insert Your Code']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  <!-- End Analytics -->
+
+
+
+  <title>albo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <!-- This section is for Splash Screen -->
+  <div class="ole">
+  <section id="jSplash">
+  	<div id="circle"></div>
+  </section>
+  </div>
+  <!-- End of Splash Screen -->
+
+  <!-- Homepage Slider -->
+
+
+  <div id="home-slider">
+      <div class="overlay"></div>
+
+      <div class="slider-text">
+          <a href="#home-slider"><img class="slider-logo" src="/images/logo.png"></a>
+      </div>
+
+      <div class="control-nav">
+            <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
+      </div>
+  </div>
+
+
+  <!-- End Homepage Slider -->
+
+  <!-- Header -->
+  <header>
+    <div class="sticky-nav">
+    	<a id="mobile-nav" class="menu-nav" href="#menu-nav"></a>
+      <a href="#home-slider"><img class="nav-logo" src="/images/logo_@2x.png"></a>
+      <nav id="menu">
+        <ul id="menu-nav">
+
+          <% if flash.notice %>
+            <li class="message"><p id="notice"><%= notice %></p><img class="status_message" src="/images/ok.png"></li>
+          <% elsif flash.alert%>
+            <%if params[:commit]%>
+              <li class="message"><p id="info"><%= alert %></p><img class="status_message" src="/images/info.png"></li>
+            <%end %>
+<!-- message for devise registration -->
+          <% elsif params[:controller].include? "devise" %>
+            <%if devise_error_messages! != "" %>
+              <% render_devise_message(devise_error_messages!) %>
+              <li class="message"><p id="alert"><%= @msg_dvs_rnded %></p><img class="status_message" src="/images/error.png"></li>
+            <% end %>
+<!-- end message for devise registration -->
+          <% else %>
+
+          <%end%>
+
+
+
+        	<li class="current"><a href="#home-slider">Home</a></li>
+          <li><a href="#work">Progetti</a></li>
+          <li><a href="#about">Chi sono</a></li>
+          <li id="contact-buttom"><a href="#contact">Contatti</a></li>
+          <!--login pannel mobile -->
+          <% if user_signed_in? %>
+            <li class="menu-login-mobile"><nav class="login-mobile nickname">Ciao <%=@nickname_rendered%></nav></li>
+            <% if current_user.provider != "facebook"%>
+              <li class="menu-login-mobile"><%= link_to 'Edit profile', edit_user_registration_path,method: :get , :class =>'login-mobile'%></li>
+            <% end %>
+            <li class="menu-login-mobile"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class =>'login-mobile'%></li>
+          <% else %>
+            <li class="menu-login-mobile"><%= link_to "Login", new_user_session_path, method: :login , :class =>'login-mobile'%></li>
+            <li class="menu-login-mobile"><%= link_to "Registrati", "/users/sign_up", method: :get , :class =>'login-mobile'%></li>
+            <li class="menu-login-mobile"><%= link_to "Entra con Facebook", user_omniauth_authorize_path(:facebook), method: :get , :class => 'login-mobile' %></li>
+          <% end %>
+          <!--login pannel mobile end-->
+        <ul>
+
+        <!--login pannel desktop -->
+        <% if user_signed_in? %>
+          <div class="login" >
+            <% if  current_user.avatar_file_name == nil %>
+              <img class="login-image" src="/images/no-avatar.png">
+            <% else %>
+              <img src=<%=current_user.avatar.url(:thumb)%>  >
+            <%end%>
+            <div id="login-pannel">
+              <div class="button-login">
+                <div class="button-login nickname">Ciao <%=@nickname_rendered%></div>
+                <% if current_user.provider != "facebook"%>
+                  <%= link_to 'Edit profile', edit_user_registration_path,method: :get, :class => 'button-login' %><br>
+                <% end %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'button-login'  %>
+              </div>
+            </div >
+          </div>
+        <% else %>
+          <div class="login">
+            <img class="login-image" src="/images/no-avatar.png" >
+              <div id="login-pannel">
+                <div class="button-login">
+                <%= link_to "Login", new_user_session_path, method: :login,  :class => 'button-login'  %><br>
+                <%= link_to "Registrati", "/users/sign_up", method: :get , :class => 'button-login'  %> <br>
+                <%= link_to "Entra con Facebook", user_omniauth_authorize_path(:facebook), method: :get , :class => 'button-login' %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <!--login pannel deskotp  end-->
+        </div >
+      </nav>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- Js -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> <!-- jQuery Core -->
+  <script src="/js/bootstrap.min.js"></script> <!-- Bootstrap -->
+  <script src="/js/supersized.3.2.7.min.js"></script> <!-- Slider -->
+  <script src="/js/waypoints.js"></script> <!-- WayPoints -->
+  <script src="/js/waypoints-sticky.js"></script> <!-- Waypoints for Header -->
+  <script src="/js/jquery.isotope.js"></script> <!-- Isotope Filter -->
+  <script src="/js/jquery.fancybox.pack.js"></script> <!-- Fancybox -->
+  <script src="/js/jquery.fancybox-media.js"></script> <!-- Fancybox for Media -->
+  <script src="/js/jquery.tweet.js"></script> <!-- Tweet -->
+  <script src="/js/plugins.js"></script> <!-- Contains: jPreloader, jQuery Easing, jQuery ScrollTo, jQuery One Page Navi -->
+  <script src="/js/main.js"></script> <!-- Default JS -->
+  <!-- End Js -->
+
+  <%= yield %>

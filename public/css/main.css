@@ -582,6 +582,11 @@ header #logo {
 	margin-left: 20px;
 }
 
+#btn-back {
+    position: relative;
+    left: -70px ;
+}
+
 img.nav-logo {
     margin-top: 15px;
     margin-left: 15px;
