@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20160215140622) do
   create_table "images", force: :cascade do |t|
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.string   "uplaod_photo_file_name"
-    t.string   "uplaod_photo_content_type"
-    t.integer  "uplaod_photo_file_size"
-    t.datetime "uplaod_photo_updated_at"
+    t.string   "upload_photo_file_name"
+    t.string   "upload_photo_content_type"
+    t.integer  "upload_photo_file_size"
+    t.datetime "upload_photo_updated_at"
     t.integer  "project_id"
   end
 

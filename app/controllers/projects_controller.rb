@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
         #===== The magic is here ;)
         params[:photos].each { |photo|
 
-          @project.images.create(uplaod_photo: photo)
+          @project.images.create(upload_photo: photo)
         }
         @default_photo = @project.images.first
         @project.update(:default_photo => @default_photo.id)
