@@ -11,19 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215140622) do
+ActiveRecord::Schema.define(version: 20160224091605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "contents", force: :cascade do |t|
+    t.integer  "id_project"
+    t.integer  "id_page"
+    t.string   "text"
+    t.string   "url_yt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", force: :cascade do |t|
+    t.integer  "id_project"
+    t.integer  "id_page"
+    t.integer  "id_content"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "upload_photo_file_name"
     t.string   "upload_photo_content_type"
     t.integer  "upload_photo_file_size"
     t.datetime "upload_photo_updated_at"
-    t.integer  "project_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "id_project"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
