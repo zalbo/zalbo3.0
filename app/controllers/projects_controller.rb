@@ -38,21 +38,8 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
       if @project.save
-
-        if params[:photos]
-        #===== The magic is here ;)
-        params[:photos].each { |photo|
-
-          @project.images.create(upload_photo: photo)
-        }
-        @default_photo = @project.images.first
-        @project.update(:default_photo => @default_photo.id)
-        end
-        redirect_to "/projects"
-      else
-
+        redirect_to "/projects/#{@project.id}/pages/new"
       end
-
   end
 
   # PATCH/PUT /projects/1

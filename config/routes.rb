@@ -6,9 +6,15 @@ Rails.application.routes.draw do
   get 'footer/create'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
-  resources :images
   resources :projects
+  resources :pages
+
+  resources :images
+  resources :projects do
+    resources :pages
+  end
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

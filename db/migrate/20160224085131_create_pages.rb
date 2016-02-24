@@ -1,7 +1,7 @@
 class CreatePages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
-      t.integer :id_project
+      t.integer :project_id
 
       t.timestamps null: false
     end

@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @page.text %>
+  <strong>Title:</strong>
+  <%= @page.title %>
 </p>
 
-<p>
-  <strong>Url yt:</strong>
-  <%= @page.url_yt %>
-</p>
 
-<p>
-  <strong>Id project:</strong>
-  <%= @page.id_project %>
-</p>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>

@@ -1,6 +1,4 @@
 
-
-
 <!-- Our Projects -->
 <div id="work" class="page">
 	<div class="container"
@@ -9,6 +7,7 @@
             <div class="span12">
                 <div class="title-page">
                     <h2 class="title">Progetti</h2>
+										<%= link_to 'New Project', '/projects/new' %>
                 </div>
             </div>
         </div>
@@ -44,8 +43,10 @@
                           	<span class="overlay-img-thumb"><%=project.title%></span>
                           	</a>
                           	<!-- Thumb Image and Description -->
-                          	<img src=<%=Image.find(project.default_photo).upload_photo.url(:medium) %> alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                        	</li>
+
+                          	<img src="" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+
+													</li>
                       		<!-- End Item Project -->
 												<%end%>
                       </ul>

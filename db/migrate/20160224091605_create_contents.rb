@@ -1,8 +1,8 @@
 class CreateContents < ActiveRecord::Migration
   def change
     create_table :contents do |t|
-      t.integer :id_project
-      t.integer :id_page
+      t.integer :project_id
+      t.integer :page_id
       t.string :text
       t.string :url_yt
 
