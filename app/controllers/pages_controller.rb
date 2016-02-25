@@ -10,6 +10,10 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+
+    @contents = []
+    @contents << Content.new
+
   end
 
   # GET /pages/new
@@ -28,7 +32,7 @@ class PagesController < ApplicationController
     @page = Page.new(page_params)
 
     if @page.save
-    
+
       redirect_to "/projects/#{@project.id}/pages/#{@page.id}"
     else
 
