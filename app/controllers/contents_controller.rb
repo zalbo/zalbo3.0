@@ -24,12 +24,16 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
+
     params["contents"].each do |content|
-      if content["text"] != ""
-        @content = Content.create(content_params(content))
+      @content = Content.new
+      if content["text"]
+        @content.update(content.permit(:text , :project_id , :page_id))
+      else content ["photo"]
+        
       end
+
     end
-    binding.pry
     redirect_to "/projects/#{params[:contents][0][:project_id]}/pages/#{params[:contents][0][:page_id]}"
   end
 

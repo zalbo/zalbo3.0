@@ -33,7 +33,7 @@ class PagesController < ApplicationController
 
     if @page.save
 
-      redirect_to "/projects/#{@project.id}/pages/#{@page.id}"
+      redirect_to "/projects/#{@project.id}/pages/#{@page.id}/contents/new"
     else
 
     end

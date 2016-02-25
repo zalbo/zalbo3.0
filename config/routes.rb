@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'footer/create'
 
+  get '/projects/:project_id/pages/:id/contents/new' => 'contents#new'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :projects
   resources :pages
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :pages do
-    resurces :contents
+    resources :contents
   end
 
 
