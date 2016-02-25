@@ -29,8 +29,9 @@ class ContentsController < ApplicationController
       @content = Content.new
       if content["text"]
         @content.update(content.permit(:text , :project_id , :page_id))
-      else content ["photo"]
-        
+      else content["photo"]
+        @content.update(project_id: content[:project_id] , page_id: content[:page_id])
+        @content.images.create(upload_photo: content[:photo])
       end
 
     end

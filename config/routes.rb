@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :contents
+
   get 'footer/index'
 
   get 'footer/new'
@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   resources :projects
   resources :pages
   resources :contents
-
   resources :images
+  
   resources :projects do
     resources :pages
   end
@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   resources :pages do
     resources :contents
   end
+
+  resources :contents do
+    resources :images
+  end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

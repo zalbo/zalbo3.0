@@ -3,22 +3,19 @@ $( document ).ready(function() {
   var order = 0
   $("#button_text").click(function() {
     $("#layout_form")
-
       .append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][order]" id="contents__order"><label for="contents__text">Text</label><br><input type="text" name="contents[][text]" id="contents__text"><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div>');
       order ++ ;
   });
   $("#button_photo").click(function() {
     $("#layout_form")
-
       .append('<div class="field"><input value=' + order +' type="hidden" name="contents[][order]" id="contents__order"><label for="content__photo">Insert Photo</label><input class="photo_input" type="file" name="contents[][photo]" id="contents__photo"><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div>');
       order ++ ;
   });
 });
 
-
 </script>
 
-<form action="/contents" accept-charset="UTF-8" method="post">
+<form class="new_content" id="new_content" enctype="multipart/form-data" action="/contents" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="8SELy1V+PrKQqOHwxI5RIWpRm43rW83ChLvqd7noJbLkR9kCk4cxq45l41QMuJnPY9axQIFtgsQ7Hs7dT77+hQ==">
     <button type="button" id="button_text">Aggiungi un text</button>
