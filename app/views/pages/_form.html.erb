@@ -13,12 +13,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <info>Titolo pagina</info><br><br>
     <%= f.text_field :title %>
   </div>
   <%= f.hidden_field :project_id, :value => params[:project_id]%>
+  <hr class="hr_log">
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crea pagina" %>
   </div>
 <% end %>

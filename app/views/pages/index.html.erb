@@ -1,31 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div id="work" class="page">
+	<div class="container">
+    <br>
+    <div class="index_project_left">
+      <h1><span style="color:rgb(222, 94, 96)">Progetto:  </span><%=@project.title%></h1>
+    </div>
+		<div class="index_project_right">
+			<h1 class="index_h1"><span style="font-size: medium">creato il:<%=@project.created_at.strftime("%B %d, %Y")%></span></h1>
+			<h1 class="index_h1"><span style="font-size: medium">ultima modifica:<%=@project.updated_at.strftime("%B %d, %Y")%></span></h1>
+		</div>
 
-<h1>Listing Pages</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Text</th>
-      <th>Url yt</th>
-      <th>Id project</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @pages.each do |page| %>
-      <tr>
-        <td><%= page.text %></td>
-        <td><%= page.url_yt %></td>
-        <td><%= page.id_project %></td>
-        <td><%= link_to 'Show', page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
-        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+		<hr class="hr_log_v2">
+		<div class="index_project_left">
+      <h4 class="index_project_left"><%=page.title%></h4>
+		</div>
+		<div class="index_project_right_page">
+			<h1 class="index_h2"><span style="font-size: medium">creato il:<%=@project.created_at.strftime("%B %d, %Y")%></span></h1>
+			<h1 class="index_h2"><span style="font-size: medium">ultima modifica:<%=@project.updated_at.strftime("%B %d, %Y")%></span></h1>
+		</div>
+
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Page', new_page_path %>
+      <!-- End Portfolio Projects -->
+  </div>
+</div>
+<!-- End Our Projects-->

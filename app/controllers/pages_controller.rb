@@ -4,16 +4,21 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
+    @project = Project.find(params[:project_id])
     @pages = Page.all
   end
 
   # GET /pages/1
   # GET /pages/1.json
   def show
-
     @contents = []
-    @contents << Content.new
-
+    Content.where(page_id: params[:id]).each do |content|
+      if content.present_image
+        @contents << Image.where(content_id: content.id)[0]
+      else
+        @contents << content
+      end
+    end
   end
 
   # GET /pages/new

@@ -128,6 +128,7 @@ img.status_message {
 hr.hr_log {
     border-color: #DE5E60;
 		border-style: inset;
+		width: 1164px;
 }
 
 .hr_log_v2 {
@@ -135,8 +136,22 @@ hr.hr_log {
 		border-style: inset;
 		margin-top: 20px ;
 		margin-bottom: 20px ;
+		width: 1164px;
 }
 
+h1.index_h1 {
+	  color: #7F8289 ;
+    height: 17px;
+    margin-bottom: 0px;
+		text-align: right;
+}
+
+h1.index_h2 {
+	  color: #7F8289 ;
+		height: 17px;
+		margin-bottom: 0px;
+		text-align: right;
+}
 hr {
 	border-style: dashed;
 	border-color: #3C3F45;
@@ -176,6 +191,74 @@ hr {
 
 .through{
 	text-decoration:line-through;
+}
+
+info.info_design {
+	margin-left: 50px;
+}
+
+info.info_audio {
+	margin-left: 48px;
+}
+
+info.info_elettronica {
+	margin-left: 29px;
+}
+
+input#project_title {
+	width: 370px;
+}
+
+input#page_title {
+	width: 315px;
+}
+
+input#project_category_3d {
+
+margin-right: 40px;
+
+margin-bottom: 20px;
+}
+
+input#project_category_design {
+
+margin-right: 40px;
+margin-left: 40px;
+margin-bottom: 20px;
+}
+
+input#project_category_audio {
+
+margin-right: 40px;
+margin-left: 40px;
+margin-bottom: 20px;
+}
+
+input#project_category_elettronica {
+
+margin-right: 40px;
+margin-left: 40px;
+margin-bottom: 20px;
+}
+
+.index_project_left {
+  width: 700px;
+}
+
+h4.index_project_left {
+  margin-bottom: 0px;
+}
+
+.index_project_right_page {
+	float: right;
+	position: relative;
+	top: -65px;
+}
+
+.index_project_right {
+	float: right;
+	position: relative;
+	top: -110px;
 }
 
 input, button, select, textarea {

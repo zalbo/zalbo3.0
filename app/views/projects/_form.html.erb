@@ -14,25 +14,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <info>Titolo</info><br><br>
     <%= f.text_field :title %>
   </div>
+  <hr class="hr_log">
 
   <div class="actions">
-   <%= f.label :category %><br>
-   <%= f.radio_button :category, '3d' %>
-   <%= f.label :category, '3D', :value => '3d' %>
-   <%= f.radio_button :category, 'design' %>
-   <%= f.label :category, 'Design', :value => 'design' %>
-   <%= f.radio_button :category, 'audio' %>
-   <%= f.label :category, 'Audio', :value => 'audio' %>
-   <%= f.radio_button :category, 'elettronica' %>
-   <%= f.label :category, 'Elettronica', :value => 'elettronica' %>
+   <info>Categoria</info><br><br>
+   <info class="info_3d">3d</info><info class="info_design">Design</info><info class="info_audio">Audio</info><info class="info_elettronica">Elettronica</info><br>
+   <input type="radio" value="3d" name="project[category]" id="project_category_3d">
+   <input type="radio" value="design" name="project[category]" id="project_category_design">
+   <input type="radio" value="audio" name="project[category]" id="project_category_audio">
+   <input type="radio" value="elettronica" name="project[category]" id="project_category_elettronica">
  </div>
-
+   <hr class="hr_log">
 
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Crea progetto" %>
     </div>
 <% end %>

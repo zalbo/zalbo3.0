@@ -29,11 +29,11 @@ class ContentsController < ApplicationController
       @content = Content.new
       if content["text"]
         @content.update(content.permit(:text , :project_id , :page_id))
+        @content.update(present_image: false)
       else content["photo"]
-        @content.update(project_id: content[:project_id] , page_id: content[:page_id])
-        @content.images.create(upload_photo: content[:photo])
+        @content.update(project_id: content[:project_id] , page_id: content[:page_id] , present_image: true)
+        @content.images.create(upload_photo: content[:photo] , id_project: content[:project_id] , id_page: content[:page_id])
       end
-
     end
     redirect_to "/projects/#{params[:contents][0][:project_id]}/pages/#{params[:contents][0][:page_id]}"
   end

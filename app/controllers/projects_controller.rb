@@ -38,7 +38,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
       if @project.save
-        redirect_to "/projects/#{@project.id}/pages/new"
+        redirect_to "/projects/#{@project.id}/pages"
       end
   end
 
