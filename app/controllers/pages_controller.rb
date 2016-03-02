@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @project = Project.find(params[:project_id])
-    @pages = Page.all
+    @pages = Page.where(project_id: params[:project_id])
   end
 
   # GET /pages/1

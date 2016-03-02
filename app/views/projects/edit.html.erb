@@ -1,6 +1,48 @@
-<h1>Editing Project</h1>
+<div id="work" class="page">
+	<div class="container">
 
-<%= render 'form' %>
+    <h1>Edita Progetto</h1>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+
+    <%= form_for @project , :url => url_for(:controller => 'projects', :action => 'update'), :html => { :multipart => true } do |f| %>
+
+      <% if @project.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+          <ul>
+          <% @project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <info>Titolo</info><br><br>
+        <%= f.text_field :title %>
+      </div>
+      <hr class="hr_log">
+
+      <div class="actions">
+       <info>Categoria</info><br><br>
+       <info class="info_3d">3d</info><info class="info_design">Design</info><info class="info_audio">Audio</info><info class="info_elettronica">Elettronica</info><br>
+       <input type="radio" value="3d" name="project[category]" id="project_category_3d" <%=@project.category == "3d" ? "checked" : ""%>>
+       <input type="radio" value="design" name="project[category]" id="project_category_design" <%=@project.category == "design" ? "checked" : ""%>>
+       <input type="radio" value="audio" name="project[category]" id="project_category_audio" <%=@project.category == "audio" ? "checked" : ""%>>
+       <input type="radio" value="elettronica" name="project[category]" id="project_category_elettronica" <%=@project.category == "elettronica" ? "checked" : ""%>>
+     </div>
+       <hr class="hr_log">
+
+
+        <div class="actions">
+          <%= f.submit "Crea progetto" %>
+        </div>
+    <% end %>
+
+
+
+      <!-- End Portfolio Projects -->
+  </div>
+</div>
+<!-- End Our Projects-->

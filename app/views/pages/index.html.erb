@@ -8,6 +8,8 @@
 			<h1 class="index_h1"><span style="font-size: medium">creato il:<%=@project.created_at.strftime("%B %d, %Y")%></span></h1>
 			<h1 class="index_h1"><span style="font-size: medium">ultima modifica:<%=@project.updated_at.strftime("%B %d, %Y")%></span></h1>
 		</div>
+		<%= link_to 'Modifica', edit_project_path(@project) %>
+		<%= link_to 'Delete', project_path(@project), method: :delete %>
 
     <% @pages.each do |page| %>
 		<hr class="hr_log_v2">
