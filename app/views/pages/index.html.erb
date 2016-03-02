@@ -9,16 +9,18 @@
 			<h1 class="index_h1"><span style="font-size: medium">ultima modifica:<%=@project.updated_at.strftime("%B %d, %Y")%></span></h1>
 		</div>
 		<%= link_to 'Modifica', edit_project_path(@project) %>
-		<%= link_to 'Delete', project_path(@project), method: :delete %>
+		<%= link_to 'Elimina', project_path(@project), method: :delete %>
 
     <% @pages.each do |page| %>
 		<hr class="hr_log_v2">
 		<div class="index_project_left">
       <h4 class="index_project_left"><%=page.title%></h4>
+			<%= link_to 'Modifica', edit_page_path(page) %>
+			<%= link_to 'Elimina', page_path(page), method: :delete %>
 		</div>
 		<div class="index_project_right_page">
-			<h1 class="index_h2"><span style="font-size: medium">creato il:<%=@project.created_at.strftime("%B %d, %Y")%></span></h1>
-			<h1 class="index_h2"><span style="font-size: medium">ultima modifica:<%=@project.updated_at.strftime("%B %d, %Y")%></span></h1>
+			<h1 class="index_h2"><span style="font-size: medium">creato il:<%=page.created_at.strftime("%B %d, %Y")%></span></h1>
+			<h1 class="index_h2"><span style="font-size: medium">ultima modifica:<%=page.updated_at.strftime("%B %d, %Y")%></span></h1>
 		</div>
 
     <% end %>
