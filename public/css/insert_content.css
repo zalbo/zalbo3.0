@@ -1,4 +1,32 @@
-#layout_form {
-    height: 5px;
-    background: antiquewhite;
+#zone_insert{
+  height: 60px;
+  position: relative;
+  width: 108%;
+  left: -50px;
+  z-index: 3;
+}
+
+#line {
+  position: relative;
+  height: 5px;
+  background-color: rgb(222, 94, 96);
+  top: -30px;
+  display: none;
+}
+
+.goccia {
+    position: relative;
+    top: -15px;
+    left: -30px;
+
+}
+
+#pannel_button_content {
+    height: 200px;
+    width: 400px;
+    background-color: rgb(222, 94, 96);
+    position: relative;
+    top: -33px;
+    left: 30px;
+    display: none;
 }

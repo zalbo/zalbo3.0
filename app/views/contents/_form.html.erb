@@ -1,5 +1,7 @@
 <link href="/css/insert_content.css" rel="stylesheet">
 
+<script src="/js/insert_content.js"></script>
+
 <script>
 $( document ).ready(function() {
   var order = 0
@@ -20,17 +22,23 @@ $( document ).ready(function() {
 <form class="new_content" id="new_content" enctype="multipart/form-data" action="/contents" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="8SELy1V+PrKQqOHwxI5RIWpRm43rW83ChLvqd7noJbLkR9kCk4cxq45l41QMuJnPY9axQIFtgsQ7Hs7dT77+hQ==">
-
     <div id="layout_form">
     </div>
-    <!--
+    <div id="zone_insert" onclick="open_pannel_content()">
+    </div>
+    <div id="line">
+      <img class="goccia" src="/images/goccia.png" style="width:60px">
+
+    </div>
+    <div id="pannel_button_content">
+    </div>
+
+<!--
     <button type="button" id="button_text">Aggiungi un text</button>
     <button type="button" id="button_photo">Aggiungi una foto</button>
-  -->
-
-
+-->
   <br>
-  <br>
+  
   <div class="actions">
     <input type="submit" name="commit" value="Save changes">
   </div>
