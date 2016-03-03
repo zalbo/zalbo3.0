@@ -8,15 +8,18 @@
 			<h1 class="index_h1"><span style="font-size: medium">creato il:<%=@project.created_at.strftime("%B %d, %Y")%></span></h1>
 			<h1 class="index_h1"><span style="font-size: medium">ultima modifica:<%=@project.updated_at.strftime("%B %d, %Y")%></span></h1>
 		</div>
-		<%= link_to 'Modifica', edit_project_path(@project) %>
-		<%= link_to 'Elimina', project_path(@project), method: :delete %>
+
+			<%= button_to 'Modifica progetto', edit_project_path(@project), method: :get  %>
+			<%= button_to 'Elimina progetto', project_path(@project), method: :delete , :class => "btn_delete_project delete_button"%>
 
     <% @pages.each do |page| %>
 		<hr class="hr_log_v2">
 		<div class="index_project_left">
       <h4 class="index_project_left"><%=page.title%></h4>
-			<%= link_to 'Modifica', edit_page_path(page) %>
-			<%= link_to 'Elimina', page_path(page), method: :delete %>
+			<div>
+				<%= button_to 'Modifica pagina', edit_page_path(page), method: :get %>
+				<%= button_to 'Elimina pagina', page_path(page), method: :delete , :class => "btn_index_page delete_button" %>
+			</div>
 		</div>
 		<div class="index_project_right_page">
 			<h1 class="index_h2"><span style="font-size: medium">creato il:<%=page.created_at.strftime("%B %d, %Y")%></span></h1>
@@ -24,6 +27,8 @@
 		</div>
 
     <% end %>
+		<hr class="hr_log_v2">
+		<%= link_to 'Nuova pagina', "/projects/#{@project.id}/pages/new" %>
       <!-- End Portfolio Projects -->
   </div>
 </div>

@@ -1,9 +1,11 @@
+<link href="/css/insert_content.css" rel="stylesheet">
+
 <script>
 $( document ).ready(function() {
   var order = 0
   $("#button_text").click(function() {
     $("#layout_form")
-      .append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][order]" id="contents__order"><label for="contents__text">Text</label><br><input type="text" name="contents[][text]" id="contents__text"><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div>');
+      .append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][order]" id="contents__order"><label for="contents__text">Text</label><br><textarea rows="20" type="text" name="contents[][text]" id="contents__text" ></textarea><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div>');
       order ++ ;
   });
   $("#button_photo").click(function() {
@@ -18,14 +20,17 @@ $( document ).ready(function() {
 <form class="new_content" id="new_content" enctype="multipart/form-data" action="/contents" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="8SELy1V+PrKQqOHwxI5RIWpRm43rW83ChLvqd7noJbLkR9kCk4cxq45l41QMuJnPY9axQIFtgsQ7Hs7dT77+hQ==">
+
+    <div id="layout_form">
+    </div>
+    <!--
     <button type="button" id="button_text">Aggiungi un text</button>
     <button type="button" id="button_photo">Aggiungi una foto</button>
-    <div id="layout_form">
-
-    </div>
+  -->
 
 
-
+  <br>
+  <br>
   <div class="actions">
     <input type="submit" name="commit" value="Save changes">
   </div>

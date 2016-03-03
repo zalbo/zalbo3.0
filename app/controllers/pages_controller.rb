@@ -35,7 +35,6 @@ class PagesController < ApplicationController
   def create
     @project = Project.find(params[:page][:project_id])
     @page = Page.new(page_params)
-    binding.pry
 
     if @page.save
 
@@ -60,7 +59,6 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
-    binding.pry
     @page.destroy
 
     redirect_to "/projects/#{@page.project_id}/pages"

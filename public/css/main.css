@@ -147,7 +147,7 @@ h1.index_h1 {
 }
 
 h1.index_h2 {
-	  color: #7F8289 ; 
+	  color: #7F8289 ;
 		height: 17px;
 		margin-bottom: 0px;
 		text-align: right;
@@ -252,7 +252,7 @@ h4.index_project_left {
 .index_project_right_page {
 	float: right;
 	position: relative;
-	top: -65px;
+	top: -100px;
 }
 
 .index_project_right {
@@ -265,6 +265,10 @@ input, button, select, textarea {
 	font-weight: 400;
 	font-family: 'Montserrat', sans-serif;
 	outline: 0;
+}
+
+textarea#contents__text {
+    width:1100PX;
 }
 
 input#user_avatar {
@@ -668,6 +672,11 @@ header #logo {
 #btn-back {
     position: relative;
     left: -70px ;
+}
+
+
+form.button_to {
+    display: -webkit-inline-box;
 }
 
 img.nav-logo {
