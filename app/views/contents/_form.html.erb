@@ -2,22 +2,6 @@
 
 <script src="/js/insert_content.js"></script>
 
-<script>
-$( document ).ready(function() {
-  var order = 0
-  $("#button_text").click(function() {
-    $("#layout_form")
-      .append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][order]" id="contents__order"><label for="contents__text">Text</label><br><textarea rows="20" type="text" name="contents[][text]" id="contents__text" ></textarea><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div>');
-      order ++ ;
-  });
-  $("#button_photo").click(function() {
-    $("#layout_form")
-      .append('<div class="field"><input value=' + order +' type="hidden" name="contents[][order]" id="contents__order"><label for="content__photo">Insert Photo</label><input class="photo_input" type="file" name="contents[][photo]" id="contents__photo"><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div>');
-      order ++ ;
-  });
-});
-
-</script>
 
 <form class="new_content" id="new_content" enctype="multipart/form-data" action="/contents" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
@@ -30,12 +14,12 @@ $( document ).ready(function() {
       <img class="goccia" src="/images/goccia.png" style="width:60px">
     </div>
     <div id="pannel_button_content">
-      <img class="icon_content"  src="/images/icon_text.png" style="width:32px">
-      <img class="icon_content"  src="/images/icon_one_photo.png" style="width:32px">
-      <img class="icon_content"  src="/images/icon_two_photo.png" style="width:32px">
-      <img class="icon_content"  src="/images/icon_three_photo.png" style="width:32px">
-      <img class="icon_content"  src="/images/icon_yt.png" style="width:32px">
-      <img class="icon_content"  src="/images/icon_close.png" style="width:32px">
+      <div class="icon_content text" onclick="add_text_content()"><img src="/images/icon_text.png" style="width:32px"></div>
+      <div class="icon_content one_photo"><img src="/images/icon_one_photo.png" style="width:32px"></div>
+      <div class="icon_content two_photo"><img src="/images/icon_two_photo.png" style="width:32px"></div>
+      <div class="icon_content three_photo"><img src="/images/icon_three_photo.png" style="width:32px"></div>
+      <div class="icon_content yt"><img src="/images/icon_yt.png" style="width:32px"></div>
+      <div class="icon_content close_x" onclick="close_pannel_content()"><img src="/images/icon_close.png" style="width:32px"></div>
     </div>
 
 <!--

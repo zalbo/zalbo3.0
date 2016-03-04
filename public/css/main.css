@@ -267,9 +267,7 @@ input, button, select, textarea {
 	outline: 0;
 }
 
-textarea#contents__text {
-    width:1100PX;
-}
+
 
 input#user_avatar {
     margin-top: 20px;

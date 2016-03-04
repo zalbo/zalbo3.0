@@ -33,4 +33,30 @@
 
 .icon_content{
   padding: 14px;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.icon_content:hover {
+  filter: alpha(opacity=50);
+  opacity: 0.1;
+  cursor:cell;
+}
+
+.icon_content {
+    margin: auto;
+    display: inline-block;
+}
+
+.close_x {
+  background-color: #AA5555;
+  float: right;
+  cursor:pointer !important;
+}
+
+textarea.contents__text {
+    width:1100PX;
 }
