@@ -27,11 +27,13 @@ gem "figaro" #env
 gem 'pry', '~> 0.10.3' #binding.pry
 
 gem "paperclip", "~> 4.3"
+gem 'dropzonejs-rails' #dropzone
 
 
 gem 'devise' #login gem
 gem 'omniauth-facebook'
 gem 'open_uri_redirections'
+
 
 
 # Use ActiveModel has_secure_password

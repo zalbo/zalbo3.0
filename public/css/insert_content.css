@@ -60,3 +60,35 @@
 textarea.contents__text {
     width:1100PX;
 }
+
+#drop-zone {
+  width: 95%;
+  height: 350px;
+  border-color: white;
+  border: 4px;
+  border-style: dashed;
+  border-radius: 25px;
+
+}
+
+.thumb_drag {
+  position: absolute;
+  z-index: 5;
+  height: 349px;
+  padding-left: 23%;
+  display: none;
+}
+
+
+input.input_drag {
+    position: relative;
+    top: 155px;
+    left: 42%;
+}
+
+
+p#text_drop {
+    text-align: center;
+    position: relative;
+    top: 45%;
+}

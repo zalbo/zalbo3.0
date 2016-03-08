@@ -26,7 +26,7 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
-
+    binding.pry
     params["contents"].each do |content|
       @content = Content.new
       if content["text"]

@@ -3,10 +3,17 @@
 <script src="/js/insert_content.js"></script>
 
 
-<form class="new_content" id="new_content" enctype="multipart/form-data" action="/contents" accept-charset="UTF-8" method="post">
+<script src="/js/dropzone.js"></script>
+<link rel="stylesheet" href="/css/dropzone.css">
+
+
+
+
+<form class="new_content" id="new_content" enctype="multipart/form-data" action="/pages/<%=params[:id]%>/contents" accept-charset="UTF-8" method="post">
   <input name="utf8" type="hidden" value="✓">
   <input type="hidden" name="authenticity_token" value="8SELy1V+PrKQqOHwxI5RIWpRm43rW83ChLvqd7noJbLkR9kCk4cxq45l41QMuJnPY9axQIFtgsQ7Hs7dT77+hQ==">
     <div id="layout_form">
+
     </div>
     <div id="zone_insert" onclick="open_pannel_content()">
     </div>
@@ -15,7 +22,7 @@
     </div>
     <div id="pannel_button_content">
       <div class="icon_content text" onclick="add_text_content()"><img src="/images/icon_text.png" style="width:32px"></div>
-      <div class="icon_content one_photo"><img src="/images/icon_one_photo.png" style="width:32px"></div>
+      <div class="icon_content one_photo" onclick="add_one_photo_content()"><img src="/images/icon_one_photo.png" style="width:32px"></div>
       <div class="icon_content two_photo"><img src="/images/icon_two_photo.png" style="width:32px"></div>
       <div class="icon_content three_photo"><img src="/images/icon_three_photo.png" style="width:32px"></div>
       <div class="icon_content yt"><img src="/images/icon_yt.png" style="width:32px"></div>
@@ -26,9 +33,112 @@
     <button type="button" id="button_text">Aggiungi un text</button>
     <button type="button" id="button_photo">Aggiungi una foto</button>
 -->
+
+
+
+
   <br>
 
-  <div class="actions">
-    <input type="submit" name="commit" value="Save changes">
+  <div id="submitbutton">
+	<button type="submit">Upload Files</button>
   </div>
+
+
 </form>
+
+
+<script>
+var thumb_order = 0
+
+
+
+
+
+function add_text_content(){
+  var row = 2
+  $("#layout_form").append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][text]" id="contents__order"><br><textarea rows="1" type="text" name="contents[][text]" class="contents__text" id='+ order + '></textarea><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div>');
+
+  (function next(counter, maxLoops) {
+     // break if maxLoops has been reached
+     if (counter++ >= maxLoops) return;
+
+     setTimeout(function() {
+         document.getElementById(order - 1).rows = row;
+         row = row + 1;
+         // call next() recursively
+         next(counter, maxLoops);
+     }, 50);
+   })(0, 21);
+   order ++ ;
+}
+
+function add_one_photo_content(){
+  thumb_order ++;
+  $("#layout_form").append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][one_photo]" id="contents__order"><div id="drop-zone"><img class="thumb_drag" id="thumb_drag'+ thumb_order +'" src="#"  /><p id="text_drop">Drop files here...<p><div id="clickHere"><input type="file" name="file['+ order +'][]" id="file" class="input_drag"  onchange="readURL(this);" onclick="thumb_order_func()" /><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div></div></div>');
+  $(function () {
+      var dropZoneId = "drop-zone";
+      var buttonId = "clickHere";
+      var mouseOverClass = "mouse-over";
+
+      var dropZone = $("#" + dropZoneId);
+      var ooleft = dropZone.offset().left;
+      var ooright = dropZone.outerWidth() + ooleft;
+      var ootop = dropZone.offset().top;
+      var oobottom = dropZone.outerHeight() + ootop;
+      var inputFile = dropZone.find("input");
+      document.getElementById(dropZoneId).addEventListener("dragover", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropZone.addClass(mouseOverClass);
+          var x = e.pageX;
+          var y = e.pageY;
+
+          if (!(x < ooleft || x > ooright || y < ootop || y > oobottom)) {
+              inputFile.offset({ top: y - 15, left: x - 100 });
+          } else {
+              inputFile.offset({ top: -400, left: -400 });
+          }
+
+      }, true);
+
+      if (buttonId != "") {
+          var clickZone = $("#" + buttonId);
+
+          var oleft = clickZone.offset().left;
+          var oright = clickZone.outerWidth() + oleft;
+          var otop = clickZone.offset().top;
+          var obottom = clickZone.outerHeight() + otop;
+
+
+      }
+
+      document.getElementById(dropZoneId).addEventListener("drop", function (e) {
+          $("#" + dropZoneId).removeClass(mouseOverClass);
+      }, true);
+
+  })
+
+   order ++ ;
+
+}
+
+function readURL(input) {
+  $(".thumb_drag").fadeIn(1000);
+  $("input.input_drag").fadeOut(10);
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var i = '#thumb_drag' + thumb_order
+      $(i).attr('src', e.target.result)
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+
+}
+
+
+
+
+
+
+</script>

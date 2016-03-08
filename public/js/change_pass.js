@@ -4,7 +4,7 @@ var active = false
 
 function myFunction(){
   if (active == false){
-    $("#change_pass").fadeIn(1000);
+    $("#text_drop").fadeOut(1000);
     (function next(counter, maxLoops) {
      // break if maxLoops has been reached
      if (counter++ >= maxLoops) return;
