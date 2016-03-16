@@ -38,9 +38,8 @@
 
 
   <br>
-
   <div id="submitbutton">
-	<button type="submit">Upload Files</button>
+	<input type="submit">
   </div>
 
 
@@ -74,61 +73,64 @@ function add_text_content(){
 
 function add_one_photo_content(){
   thumb_order ++;
-  $("#layout_form").append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][one_photo]" id="contents__order"><div id="drop-zone"><img class="thumb_drag" id="thumb_drag'+ thumb_order +'" src="#"  /><p id="text_drop">Drop files here...<p><div id="clickHere"><input type="file" name="file['+ order +'][]" id="file" class="input_drag"  onchange="readURL(this);" onclick="thumb_order_func()" /><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div></div></div>');
-  $(function () {
-      var dropZoneId = "drop-zone";
-      var buttonId = "clickHere";
-      var mouseOverClass = "mouse-over";
-
-      var dropZone = $("#" + dropZoneId);
-      var ooleft = dropZone.offset().left;
-      var ooright = dropZone.outerWidth() + ooleft;
-      var ootop = dropZone.offset().top;
-      var oobottom = dropZone.outerHeight() + ootop;
-      var inputFile = dropZone.find("input");
-      document.getElementById(dropZoneId).addEventListener("dragover", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-          dropZone.addClass(mouseOverClass);
-          var x = e.pageX;
-          var y = e.pageY;
-
-          if (!(x < ooleft || x > ooright || y < ootop || y > oobottom)) {
-              inputFile.offset({ top: y - 15, left: x - 100 });
-          } else {
-              inputFile.offset({ top: -400, left: -400 });
-          }
-
-      }, true);
-
-      if (buttonId != "") {
-          var clickZone = $("#" + buttonId);
-
-          var oleft = clickZone.offset().left;
-          var oright = clickZone.outerWidth() + oleft;
-          var otop = clickZone.offset().top;
-          var obottom = clickZone.outerHeight() + otop;
-
-
-      }
-
-      document.getElementById(dropZoneId).addEventListener("drop", function (e) {
-          $("#" + dropZoneId).removeClass(mouseOverClass);
-      }, true);
-
-  })
-
-   order ++ ;
+  $("#layout_form").append('<div class="field"><input value=' + order + ' type="hidden" name="contents[][one_photo]" id="contents__order"><div class="drop-zone mouse-over" id="drop-zone'+ thumb_order +'"><img style="display:none;" class="thumb_drag" id="thumb_drag'+ thumb_order +'" src="#"  /><p id="text_drop'+ thumb_order +'" class="text_drop">Drop files here...<p><div id="clickHere"><input type="file" name="file['+ order +'][]" id="file'+ thumb_order +'" class="input_drag"  onchange="readURL(this , ' + thumb_order + ');"  /><input value="<%=params[:project_id]%>" type="hidden" name="contents[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="contents[][page_id]" id="contents__page_id"></div></div></div>');
+  drop_func(thumb_order)
+  order ++ ;
 
 }
 
-function readURL(input) {
-  $(".thumb_drag").fadeIn(1000);
-  $("input.input_drag").fadeOut(10);
+function drop_func (id) {
+    var dropZoneId = "drop-zone" + id;
+    console.log(dropZoneId);
+    var buttonId = "clickHere";
+    var mouseOverClass = "mouse-over";
+
+    var dropZone = $("#" + dropZoneId);
+    var ooleft = dropZone.offset().left;
+    var ooright = dropZone.outerWidth() + ooleft;
+    var ootop = dropZone.offset().top;
+    var oobottom = dropZone.outerHeight() + ootop;
+    var inputFile = dropZone.find("input");
+    document.getElementById(dropZoneId).addEventListener("dragover", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.addClass(mouseOverClass);
+        var x = e.pageX;
+        var y = e.pageY;
+
+        if (!(x < ooleft || x > ooright || y < ootop || y > oobottom)) {
+            inputFile.offset({ top: y - 15, left: x - 100 });
+        } else {
+            inputFile.offset({ top: -400, left: -400 });
+        }
+
+    }, true);
+
+    if (buttonId != "") {
+        var clickZone = $("#" + buttonId);
+
+        var oleft = clickZone.offset().left;
+        var oright = clickZone.outerWidth() + oleft;
+        var otop = clickZone.offset().top;
+        var obottom = clickZone.outerHeight() + otop;
+
+
+    }
+
+    document.getElementById(dropZoneId).addEventListener("drop", function (e) {
+        $("#" + dropZoneId).removeClass(mouseOverClass);
+    }, true);
+
+}
+
+function readURL(input, id_thumb) {
+  $("#thumb_drag" + id_thumb).fadeIn(5000);
+  $("#text_drop" + id_thumb).fadeOut(10);
+  $("#file" + id_thumb).fadeOut(10);
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function (e) {
-      var i = '#thumb_drag' + thumb_order
+      var i = '#thumb_drag' + id_thumb
       $(i).attr('src', e.target.result)
     };
     reader.readAsDataURL(input.files[0]);
