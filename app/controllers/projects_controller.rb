@@ -13,7 +13,13 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-
+    @pages = []
+    Page.all.each do |page|
+      if page.project_id == @project.id
+        @pages << page
+        @pages = @pages.sort_by  &:created_at
+      end
+    end
   end
 
   # GET /projects/new

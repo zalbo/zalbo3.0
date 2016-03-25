@@ -26,18 +26,30 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
-    binding.pry
-    params["contents"].each do |content|
-      @content = Content.new
-      if content["text"]
-        @content.update(content.permit(:text , :project_id , :page_id))
-        @content.update(present_image: false)
-      else content["photo"]
-        @content.update(project_id: content[:project_id] , page_id: content[:page_id] , present_image: true)
-        @content.images.create(upload_photo: content[:photo] , id_project: content[:project_id] , id_page: content[:page_id])
+    @page = Page.find(params[:page_id])
+    @project = Project.find(@page.project_id)
+    if params[:text]
+      params[:text].each do |text|
+        @content = Content.new
+        @content.update(order: text[:order] , text: text[:content] , project_id: text[:project_id] , page_id: text[:page_id] , present_image: false  )
       end
     end
-    redirect_to "/projects/#{params[:contents][0][:project_id]}/pages/#{params[:contents][0][:page_id]}"
+
+    if params[:one_photo]
+      params[:one_photo].each do |photo|
+        @content = Content.new
+        @content.update(order: photo[:order] , project_id: photo[:project_id] , page_id: photo[:page_id] , present_image: true )
+        params[:file].each do |file|
+          if file[0] == photo[:order]
+            file_correct = file[1]
+            @content.images.create(order: file[0] , upload_photo: file_correct[0] , id_project: photo[:project_id] , id_page: photo[:page_id])
+          end
+        end
+      end
+    end
+    ## default_photo
+    @project.update(default_photo: Image.last.id)
+    redirect_to "/"
   end
 
   # PATCH/PUT /contents/1

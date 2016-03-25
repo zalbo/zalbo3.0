@@ -32,6 +32,7 @@
 
   <!-- Main Style -->
   <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/show_project.css" rel="stylesheet">
 
   <!-- Supersized -->
   <link href="/css/supersized.css" rel="stylesheet">
@@ -109,13 +110,12 @@
   </style>
 
 
-  <div id="home-slider">
+  <div id="home-slider" style="height: 400px ">
       <div class="overlay"></div>
 
       <div class="slider-text">
-          <a href="#home-slider"><img class="slider-logo" src="/images/logo.png"></a>
+        <div class="slider-title"><%=@project.title%></div>
       </div>
-
       <div class="control-nav">
             <a id="nextsection" href="#work"><i class="font-icon-arrow-simple-down"></i></a>
       </div>

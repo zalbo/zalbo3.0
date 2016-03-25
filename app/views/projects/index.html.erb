@@ -38,13 +38,13 @@
 													<!-- Item Project and Filter Name -->
                         	<li class="item-thumbs span3 <%= 	project.category%>">
                         		<!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                        		<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" href="/images/images/work/full/image-01-full.jpg">
+                        		<a class="hover-wrap fancybox" data-fancybox-group="gallery" title=<%=project.title%> href="/projects/<%=project.id%>">
                         		<span class="overlay-img"></span>
                           	<span class="overlay-img-thumb"><%=project.title%></span>
                           	</a>
                           	<!-- Thumb Image and Description -->
 
-                          	<img src="" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                          	<img src= <%=Image.find(project.default_photo).upload_photo.url(:thumb)%> alt= <%=Image.find(project.default_photo).upload_photo_file_name%>>
 
 													</li>
                       		<!-- End Item Project -->
