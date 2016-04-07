@@ -1,8 +1,11 @@
 <div class="pages">
 <% @pages.each do |page| %>
+    <%find_contents(page.project_id )%>
   <h1>
     <%= page.title %>
   </h1>
+  <% binding.pry%>
+
   <hr class="pages">
 <% end %>
 
