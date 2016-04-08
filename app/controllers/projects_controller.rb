@@ -16,10 +16,19 @@ class ProjectsController < ApplicationController
     @pages = []
     Page.all.each do |page|
       if page.project_id == @project.id
-        @pages << page
-        @pages = @pages.sort_by  &:created_at
+        @contents = []
+        Content.all.each do |content|
+          if content.project_id == @project.id
+            if content.page_id == page.id
+              @contents << content
+            end
+          end
+        end
+
+        @pages << {project_id: page.project_id , page_id: page.id , title_page: page.title , created_at: page.created_at , contents: @contents}
       end
     end
+    binding.pry
   end
 
   # GET /projects/new
