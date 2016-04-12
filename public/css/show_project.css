@@ -42,3 +42,10 @@ hr.pages {
   right: -33%;
   border-color: rgba(0, 0, 0, 0.16);
 }
+
+h3.content_text {
+    font-size: smaller;
+    margin: 0;
+    color: black;
+    font-style: inherit;
+}

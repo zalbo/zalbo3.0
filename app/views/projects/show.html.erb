@@ -2,9 +2,18 @@
 <% @pages.each do |page| %>
 
   <h1>
-    <% page[:page].title %>
+    <%=page[:title_page] %>
   </h1>
 
+  <% page[:contents].each do |content| %>
+    <% if content.present_image %>  <!-- content for image  -->
+
+    <% else %>
+      <h3 class="content_text">                          <!-- content for text  -->
+        <%=content.text %>
+      </h3>
+    <% end %>
+  <% end %>
 
   <hr class="pages">
 <% end %>
