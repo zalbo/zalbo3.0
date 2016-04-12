@@ -22,30 +22,59 @@ body {
   bottom: 50%;
 }
 
-.pages{
-  position: absolute;
-  left: 20%;
-  right: 20%;
+.pages {
+    width: 60%;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 h1 {
     font-size: 38px;
     color: black;
+    margin: 0 ;
 }
 
-hr.pages {
-  margin: 0;
-  position: absolute;
-  border-style: groove;
-  border-width: 1px;
-  left: -305px;
-  right: -33%;
-  border-color: rgba(0, 0, 0, 0.16);
-}
+
 
 h3.content_text {
     font-size: smaller;
-    margin: 0;
+    margin: 0px 0 47px 0;
     color: black;
     font-style: inherit;
+}
+
+.date {
+    color: #bfbfbf !important;
+    margin-top: 44px !important;
+    margin-bottom: 0px !important;
+}
+
+.label_category {
+  background-color: #DE5E60;
+  height: 34px;
+  width: 110px;
+  margin-top: 42px;
+  margin-left: 20%;
+}
+
+p.into_label {
+    color: white;
+    font-size: medium;
+    text-align: center;
+    position: relative;
+    padding-top: 4px;
+    margin: 0;
+}
+
+.divisor_title {
+    height: 5px;
+    background-color: #DE5E60;
+    width: 59px;
+    margin-bottom: 54px;
+}
+
+.divisor_page {
+    background-color: #BFBFC1;
+    width: 100%;
+    height: 3px;
 }

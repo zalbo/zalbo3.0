@@ -1,22 +1,32 @@
-<div class="pages">
+  <div class="label_category">
+    <p class="into_label">3d printer<p>
+  </div>
 <% @pages.each do |page| %>
-
-  <h1>
-    <%=page[:title_page] %>
-  </h1>
-
-  <% page[:contents].each do |content| %>
+  <div class="pages">
+    <h3 class="content_text date">
+      <%= page[:created_at].strftime("%d-%m-%Y") %>
+    </h3>
+    <h1>
+      <%=page[:title_page] %>
+    </h1>
+    <div class="divisor_title">
+    </div>
+    <% page[:contents].each do |content| %>
     <% if content.present_image %>  <!-- content for image  -->
-
+      <div class="one_photo">
+        <% @images.each do |image| %>
+          <% if image.content_id == content.id %>
+            <img alt=<%=image.upload_photo_file_name%> src=<%= image.upload_photo.url%> />
+          <% end %>
+        <%end%>
+      </div>
     <% else %>
       <h3 class="content_text">                          <!-- content for text  -->
         <%=content.text %>
       </h3>
     <% end %>
   <% end %>
-
-  <hr class="pages">
+  </div>
+  <div class="divisor_page">
+  </div>
 <% end %>
-
-
-<div>

@@ -28,6 +28,13 @@ class ProjectsController < ApplicationController
       end
     end
     @pages.sort_by { |hsh| hsh[:created_at] }
+
+    @images= []
+    Image.all.each do |image|
+      if @project.id == image.id_project
+        @images << image
+      end
+    end
   end
 
   # GET /projects/new
