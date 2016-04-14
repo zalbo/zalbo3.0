@@ -16,7 +16,7 @@
       <div class="one_photo">
         <% @images.each do |image| %>
           <% if image.content_id == content.id %>
-            <img alt=<%=image.upload_photo_file_name%> src=<%= image.upload_photo.url%> />
+            <img alt=<%=image.upload_photo_file_name%> src=<%= image.upload_photo.url(:medium)%> />
           <% end %>
         <%end%>
       </div>

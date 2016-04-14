@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
             end
           end
         end
+        @contents = @contents.sort_by {|ctn| ctn.order}
         @pages << {project_id: page.project_id , page_id: page.id , title_page: page.title , created_at: page.created_at , contents: @contents}
       end
     end

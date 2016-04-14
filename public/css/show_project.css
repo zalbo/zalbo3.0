@@ -78,3 +78,8 @@ p.into_label {
     width: 100%;
     height: 3px;
 }
+
+.one_photo {
+    padding-bottom: 60px;
+    text-align: center;
+}
