@@ -28,6 +28,22 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
+    @contents = []
+    Content.all.each do |content|
+      if content.project_id == @page.project_id
+        if content.page_id == @page.id
+          @contents << content
+        end
+      end
+    end
+    @contents = @contents.sort_by {|ctn| ctn.order}
+
+    @images= []
+    Image.all.each do |image|
+      if @page.project_id == image.id_project
+        @images << image
+      end
+    end
   end
 
   # POST /pages

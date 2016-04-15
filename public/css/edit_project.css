@@ -1,0 +1,26 @@
+input[type="submit"] {
+    position: relative !important;
+    top: -5px !important;
+    left: 15px;
+    height: 31px;
+}
+
+.one_photo {
+    padding-bottom: 60px;
+    text-align: center;
+    background: rgb(66, 70, 78);
+}
+
+h3.content_text {
+    font-size: smaller;
+    margin: 0px;
+    color: black;
+    font-style: inherit;
+    background: rgb(66, 70, 78);
+}
+
+.pages {
+  width: 60%;
+  padding-left: 20%;
+  padding-right: 20%;
+}

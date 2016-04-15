@@ -1,3 +1,5 @@
+<link href="/css/edit_project.css" rel="stylesheet">
+
 <div id="work" class="page">
 	<div class="container">
 
@@ -17,21 +19,38 @@
         </div>
       <% end %>
 
-      <div class="field">
+      <div class="field title_field">
         <info>Titolo pagina</info><br><br>
         <%= f.text_field :title %>
-      </div>
+
       <%= f.hidden_field :project_id, :value => params[:project_id]%>
-      <hr class="hr_log">
 
-      <div class="actions">
-        <%= f.submit "Applica Modifiche alla pagina" %>
-      </div>
+
+      <%= f.submit "Modifica il titolo" %>
+			</div>
+
+			<hr class="hr_log">
+
+			<h1>Modifica Contenuto </h1>
+
     <% end %>
-
-
-
-      <!-- End Portfolio Projects -->
+		<div class="pages">
+			<% @contents.each do |content| %>
+				<% if content.present_image %>  <!-- content for image  -->
+					<div class="one_photo">
+						<% @images.each do |image| %>
+							<% if image.content_id == content.id %>
+								<img alt=<%=image.upload_photo_file_name%> src=<%= image.upload_photo.url(:medium)%> />
+							<% end %>
+						<%end%>
+					</div>
+				<% else %>
+					<h3 class="content_text">                          <!-- content for text  -->
+						<%=content.text %>
+					</h3>
+				<% end %>
+				<%= button_to "Modifica contenuto", "/contents/#{content.id}/edit" , method: :get %>
+			<% end %>
+		</div>
   </div>
 </div>
-<!-- End Our Projects-->

@@ -1,6 +1,13 @@
+<link href="/css/show_project.css" rel="stylesheet">
+
   <div class="label_category">
     <p class="into_label">3d printer<p>
   </div>
+  <% if user_signed_in? %>
+    <div class="btn_edit_project">
+      <%= link_to 'Modifca Progetto', "/projects/#{@project.id}/pages" %>
+    </div>
+  <%end %>
 <% @pages.each do |page| %>
   <div class="pages">
     <h3 class="content_text date">

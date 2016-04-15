@@ -83,3 +83,8 @@ p.into_label {
     padding-bottom: 60px;
     text-align: center;
 }
+
+.btn_edit_project {
+    margin-left: 20%;
+    margin-top: 15px;
+}
