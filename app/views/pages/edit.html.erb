@@ -43,13 +43,15 @@
 								<img alt=<%=image.upload_photo_file_name%> src=<%= image.upload_photo.url(:medium)%> />
 							<% end %>
 						<%end%>
+						<%= button_to "Modifica contenuto", "/contents/#{content.id}/edit" , method: :get , class: :edit_content %>
 					</div>
 				<% else %>
 					<h3 class="content_text">                          <!-- content for text  -->
 						<%=content.text %>
+						<%= button_to "Modifica contenuto", "/contents/#{content.id}/edit" , method: :get %>
 					</h3>
 				<% end %>
-				<%= button_to "Modifica contenuto", "/contents/#{content.id}/edit" , method: :get %>
+
 			<% end %>
 		</div>
   </div>

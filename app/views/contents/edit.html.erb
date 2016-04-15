@@ -1,6 +1,28 @@
-<h1>Editing Content</h1>
+<link href="/css/edit_project.css" rel="stylesheet">
+<div id="work" class="page">
+	<div class="container">
+    <div class="pages">
+    <h1> Modifica Contenuto </h1>
+    <%= form_for(@content) do |f| %>
+      <% if @content.present_image %>  <!-- content for image  -->
+          <div class="one_photo">
+            <% @images.each do |image| %>
+              <img alt=<%=image.upload_photo_file_name%> src=<%= image.upload_photo.url(:medium)%> />
+              <%= f.file_field :attachment %>
+            <%end%>
+          </div>
+      <% else %>
+        <h3 class="content_text">
+          <%= f.text_field :text %>                         <!-- content for text  -->
+        </h3>
+      <% end %>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @content %> |
-<%= link_to 'Back', contents_path %>
+
+    <%= f.submit "Modifica Contenuto" %>
+    <%end%>
+    </div>
+    <div class="divisor_page">
+    </div>
+  </div>
+</div>

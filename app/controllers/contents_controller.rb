@@ -21,6 +21,8 @@ class ContentsController < ApplicationController
 
   # GET /contents/1/edit
   def edit
+    set_image(@content)
+
   end
 
   # POST /contents
@@ -55,15 +57,15 @@ class ContentsController < ApplicationController
   # PATCH/PUT /contents/1
   # PATCH/PUT /contents/1.json
   def update
-    respond_to do |format|
-      if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
-        format.json { render :show, status: :ok, location: @content }
-      else
-        format.html { render :edit }
-        format.json { render json: @content.errors, status: :unprocessable_entity }
+    if @content.present_image
+      set_image(@content)
+      @images.each do |image|
+        image.update( upload_photo: params[:content][:attachment])
       end
+    else
+      @content.update(text: params[:content][:text])
     end
+    redirect_to "/pages/#{@content.page_id}/edit"
   end
 
   # DELETE /contents/1
@@ -89,5 +91,14 @@ class ContentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params(content)
       content.permit(:text , :project_id , :page_id)
+    end
+
+    def set_image(content)
+      @images= []
+      Image.all.each do |image|
+        if content.project_id == image.id_project && @content.page_id == image.id_page && @content.id == image.content_id
+          @images << image
+        end
+      end
     end
 end
