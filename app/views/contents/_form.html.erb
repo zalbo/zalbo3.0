@@ -55,7 +55,7 @@ var thumb_order = 0
 
 function add_text_content(){
   var row = 2
-  $("#layout_form").append('<div class="field"><input value=' + order + ' type="hidden" name="text[][order]" id="contents__order"><br><textarea rows="1" type="text" name="text[][content]" class="contents__text" id='+ order + '></textarea><input value="<%=params[:project_id]%>" type="hidden" name="text[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="text[][page_id]" id="contents__page_id"></div>');
+  $("#layout_form").append('<div class="field'+ order +'"><div class="cross_content" id="cross'+ order +'" onclick="delete_content('+ order + ')"><img src="/images/icon_close.png" style="width:32px"></div><input value=' + order + ' type="hidden" name="text[][order]" id="contents__order"><br><textarea rows="1" type="text" name="text[][content]" class="contents__text" id='+ order + '></textarea><input value="<%=params[:project_id]%>" type="hidden" name="text[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="text[][page_id]" id="contents__page_id"></div>');
 
   (function next(counter, maxLoops) {
      // break if maxLoops has been reached
@@ -71,11 +71,18 @@ function add_text_content(){
    order ++ ;
 }
 
+
 function add_one_photo_content(){
   thumb_order ++;
-  $("#layout_form").append('<div class="field"><input value=' + order + ' type="hidden" name="one_photo[][order]" id="contents__order"><div class="drop-zone mouse-over" id="drop-zone'+ thumb_order +'"><img style="display:none;" class="thumb_drag" id="thumb_drag'+ thumb_order +'" src="#"  /><p id="text_drop'+ thumb_order +'" class="text_drop">Drop files here...<p><div id="clickHere"><input type="file" name="file['+ order +'][]" id="file'+ thumb_order +'" class="input_drag"  onchange="readURL(this , ' + thumb_order + ');"  /><input value="<%=params[:project_id]%>" type="hidden" name="one_photo[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="one_photo[][page_id]" id="contents__page_id"></div></div></div>');
+  $("#layout_form").append('<div class="field'+ order +'"><div class="cross_content" id="cross'+ order +'" onclick="delete_content('+ order + ')"><img class="img_drop" src="/images/icon_close.png" style="width:32px"></div><input value=' + order + ' type="hidden" name="one_photo[][order]" id="contents__order"><div class="drop-zone mouse-over" id="drop-zone'+ thumb_order +'"><img style="display:none;" class="thumb_drag" id="thumb_drag'+ thumb_order +'" src="#"  /><p id="text_drop'+ thumb_order +'" class="text_drop">Drop files here...<p><div id="clickHere"><input type="file" name="file['+ order +'][]" id="file'+ thumb_order +'" class="input_drag"  onchange="readURL(this , ' + thumb_order + ');"  /><input value="<%=params[:project_id]%>" type="hidden" name="one_photo[][project_id]" id="contents__project_id"><input value="<%=params[:id]%>" type="hidden" name="one_photo[][page_id]" id="contents__page_id"></div></div></div>');
   drop_func(thumb_order)
   order ++ ;
+}
+
+function delete_content(id){
+  var field = ".field" + id ;
+  $(field).fadeOut('slow');
+  $(field).remove();
 }
 
 function drop_func (id) {

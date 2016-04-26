@@ -31,3 +31,7 @@ form.button_to {
     padding-top: 21px;
     text-align: center;
 }
+
+textarea#content_text{
+    width: 687px;
+}

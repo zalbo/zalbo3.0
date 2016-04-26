@@ -10,16 +10,15 @@
               <img alt=<%=image.upload_photo_file_name%> src=<%= image.upload_photo.url(:medium)%> />
               <%= f.file_field :attachment %>
             <%end%>
+						<%= f.submit "Modifica Contenuto" %>
           </div>
       <% else %>
         <h3 class="content_text">
-          <%= f.text_field :text %>                         <!-- content for text  -->
+          <%= f.text_area(:text, rows: 30) %>
+					<%= f.submit "Modifica Contenuto" %>                      <!-- content for text  -->
         </h3>
       <% end %>
 
-
-
-    <%= f.submit "Modifica Contenuto" %>
     <%end%>
     </div>
     <div class="divisor_page">

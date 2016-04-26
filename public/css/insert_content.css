@@ -94,3 +94,24 @@ p.text_drop {
     position: relative;
     top: 45%;
 }
+
+.cross_content {
+    width: 34px;
+    height: 34px;
+    position: relative;
+    top: 28px;
+    right: 8px;
+    float: right;
+}
+
+.cross_content:hover {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+  cursor:pointer;
+}
+
+img.img_drop {
+    top: -29px !important;
+    position: relative;
+    right: -2px;
+}
