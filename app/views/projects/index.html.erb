@@ -43,9 +43,11 @@
                           	<span class="overlay-img-thumb"><%=project.title%></span>
                           	</a>
                           	<!-- Thumb Image and Description -->
-
-                          	<img src= <%=Image.find(project.default_photo).upload_photo.url(:thumb)%> alt= <%=Image.find(project.default_photo).upload_photo_file_name%>>
-
+														<%if project.default_photo%>
+                          		<img src= <%=Image.find(project.default_photo).upload_photo.url(:thumb)%> alt= <%=Image.find(project.default_photo).upload_photo_file_name%>>
+														<%else %>
+															<img src="/images/logo_@2x.png"  alt= "no_photo">
+														<%end%>
 													</li>
                       		<!-- End Item Project -->
 												<%end%>

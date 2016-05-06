@@ -50,8 +50,12 @@ class ContentsController < ApplicationController
       end
     end
     ## default_photo
-    @project.update(default_photo: Image.last.id)
+    if Image.last
+      @project.update(default_photo: Image.last.id)
+    else
+      @project.update(default_photo: nil)
     redirect_to "/"
+    end
   end
 
   # PATCH/PUT /contents/1

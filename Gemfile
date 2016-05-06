@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "figaro" #env
 gem 'pry', '~> 0.10.3' #binding.pry
 
+gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+
 gem "paperclip", "~> 4.3"
 gem 'dropzonejs-rails' #dropzone
 

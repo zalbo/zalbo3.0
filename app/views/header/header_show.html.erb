@@ -32,7 +32,7 @@
 
   <!-- Main Style -->
   <link href="/css/main.css" rel="stylesheet">
-  
+
 
   <!-- Supersized -->
   <link href="/css/supersized.css" rel="stylesheet">
@@ -106,7 +106,11 @@
 
   <!-- Homepage Slider -->
   <style>
-    #home-slider {background-image: url("<%=Image.find(@project.default_photo).upload_photo.url%>") !important;}
+    <%if @project.default_photo %>
+      #home-slider {background-image: url("<%=Image.find(@project.default_photo).upload_photo.url%>") !important;}
+    <%else%>
+      #home-slider {background-image: url("/images/slider-images/image01.jpg") !important;}
+    <%end%>
   </style>
 
 
